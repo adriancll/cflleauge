@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Competitive Fishing League</title>
+<meta name="description" content="The Competitive Fishing League. One axis, one canal, one champion.">
+<meta property="og:title" content="The Competitive Fishing League">
+<meta property="og:description" content="One axis, one canal, one champion.">
+<meta property="og:type" content="website">
+<!-- BEFORE SHARING: link previews need an absolute URL here. Most crawlers
+     ignore a relative one, so once this is hosted, change the line below to
+     the full address, e.g. https://your-domain.example/assets/web/og.png -->
+<meta property="og:image" content="assets/web/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/web/crest.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js";</script>
+<style>
+/* ============================================================
+   THE COMPETITIVE FISHING LEAGUE
+   Visual world: the axial water garden — engraved garden plan,
+   clipped hedge geometry, gilt bronze, marble at fixed points.
+   ============================================================ */
+
+:root{
+  --canal-deep:#08243d;
+  --canal:#0d3557;
+  --canal-lit:#123f66;
+  --basin:#14497a;
+  --water:#2a6fa8;
+  --spray:#dce9f2;
+  --marble:#ece7db;
+  --gravel:#cbbfa4;
+  --hedge:#1b3a2a;
+  --hedge-lit:#2f5c40;
+  --gilt:#c0913f;
+  --gilt-lit:#e6c179;
+  --gilt-deep:#8a6524;
+  --bronze-ink:#664611;   /* bronze dark enough to set type on marble */
+  --seal:#9d1c26;
+  --ink-2:#a8c2d6;
+
+  --axis-max:1180px;
+  --rule:1px solid rgba(192,145,63,.38);
+
+  --display:"Cinzel",Georgia,"Times New Roman",serif;
+  --text:"EB Garamond",Georgia,"Times New Roman",serif;
+
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scrollbar-color:var(--gilt-deep) var(--canal-deep);
+}
+
+body{
+  margin:0;
+  background:var(--canal-deep);
+  color:var(--marble);
+  font-family:var(--text);
+  font-size:clamp(1.0625rem,.98rem + .38vw,1.1875rem);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+/* --- browser surfaces, themed from the palette --- */
+::selection{background:var(--gilt);color:var(--canal-deep)}
+:focus-visible{
+  outline:2px solid var(--gilt-lit);
+  outline-offset:3px;
+  border-radius:1px;
+}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:var(--canal-deep)}
+::-webkit-scrollbar-thumb{
+  background:var(--gilt-deep);
+  border:3px solid var(--canal-deep);
+  border-radius:6px;
+}
+::-webkit-scrollbar-thumb:hover{background:var(--gilt)}
+
+img{max-width:100%;display:block}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  line-height:1.14;
+  text-wrap:balance;
+  margin:0;
+}
+
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+
+.axis{
+  max-width:var(--axis-max);
+  margin-inline:auto;
+  padding-inline:clamp(1.25rem,5vw,2.5rem);
+}
+
+.measure{max-width:66ch;margin-inline:auto}
+
+/* Engraved plate label — the plan's own annotation voice. */
+.plate{
+  font-family:var(--display);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--gilt-lit);
+}
+
+/* Hairline flourish rule, drawn as geometry not as a border. */
+.flourish{
+  display:block;
+  width:100%;
+  max-width:340px;
+  height:14px;
+  margin:1.5rem auto;
+  overflow:visible;
+}
+.flourish path,.flourish line,.flourish circle{
+  stroke:var(--gilt);
+  fill:none;
+  stroke-width:1;
+  vector-effect:non-scaling-stroke;
+}
+.flourish circle{fill:var(--gilt)}
+
+/* ============================================================
+   1 — THE GREAT AXIS
+   ============================================================ */
+
+.terrace{
+  position:relative;
+  padding-block:clamp(2.5rem,7vw,4.5rem) 0;
+  text-align:center;
+  isolation:isolate;
+}
+
+/* Sky graded toward the horizon, as atmosphere actually behaves. */
+.terrace::before{
+  content:"";
+  position:absolute;
+  inset:0 0 40% 0;
+  background:linear-gradient(var(--canal-deep) 30%,var(--canal) 76%,var(--canal-lit));
+  z-index:-2;
+}
+
+.cartouche{
+  position:relative;
+  width:clamp(132px,20vw,178px);
+  margin:0 auto;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+}
+/* Marble medallion: the crest is navy-dominant and needs a light ground. */
+.cartouche::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 34% 28%,#fbf8f1,var(--marble) 52%,#cfc8b7);
+  box-shadow:
+    0 2px 3px rgba(255,255,255,.28) inset,
+    0 18px 38px -12px rgba(0,0,0,.62),
+    0 0 0 5px var(--canal-deep),
+    0 0 0 6px var(--gilt-deep),
+    0 0 0 10px var(--canal-deep),
+    0 0 0 11px rgba(192,145,63,.5);
+}
+.cartouche img{
+  position:relative;
+  width:80%;
+  height:80%;
+  object-fit:contain;
+}
+
+.terrace h1{
+  font-size:clamp(1.85rem,1.1rem + 3.5vw,4.15rem);
+  font-weight:700;
+  letter-spacing:.11em;
+  margin-top:1.9rem;
+  color:var(--marble);
+  text-shadow:0 2px 18px rgba(0,0,0,.45);
+}
+.terrace h1 .the{
+  display:block;
+  font-size:.3em;
+  font-weight:500;
+  letter-spacing:.52em;
+  color:var(--gilt-lit);
+  margin-bottom:1.1em;
+  text-indent:.52em;
+}
+
+/* --- the one-point perspective view down the canal --- */
+.vista{
+  position:relative;
+  width:100%;
+  margin-top:clamp(1rem,3vw,2rem);
+  line-height:0;
+}
+.vista svg{width:100%;height:auto;display:block}
+
+/* The jets play at full height by default; scripting is what holds them back
+   so the wake can run. With no JS, or reduced motion, nothing is ever hidden. */
+.jet-rest{transform-origin:center bottom}
+.js .jet-rest{transform:scaleY(.12)}
+.js .woke .jet-rest{
+  transform:scaleY(1);
+  transition:transform 1.5s var(--ease);
+}
+.woke .j1{transition-delay:.05s}
+.woke .j2{transition-delay:.22s}
+.woke .j3{transition-delay:.39s}
+.woke .j4{transition-delay:.56s}
+.woke .j5{transition-delay:.73s}
+.woke .j6{transition-delay:.9s}
+
+/* ============================================================
+   2 — THE PARTERRE  (the plan legend)
+   ============================================================ */
+
+.parterre{
+  background:
+    linear-gradient(var(--canal) 0 60%,var(--canal-deep));
+  padding-block:clamp(3.5rem,9vw,6rem);
+  border-top:var(--rule);
+}
+
+.legend{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:clamp(1.25rem,4vw,3rem);
+  margin-top:2.75rem;
+}
+.legend-bed{display:grid;gap:1.75rem}
+.legend-bed.right{text-align:right}
+.legend-bed.right .legend-row{flex-direction:row-reverse}
+
+.legend-row{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.legend-row svg{flex:none;width:38px;height:38px}
+.legend-row svg [stroke]{stroke:var(--gilt)}
+.legend-row dt{
+  font-family:var(--display);
+  font-size:.68rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--gilt-lit);
+  margin-bottom:.15rem;
+}
+.legend-row dd{
+  margin:0;
+  font-size:1.02rem;
+  color:var(--marble);
+  line-height:1.35;
+}
+.legend-row dd small{
+  display:block;
+  font-size:.86rem;
+  font-style:italic;
+  color:var(--ink-2);
+}
+
+/* the broderie knot at the centre of the parterre */
+.knot{width:clamp(94px,15vw,150px);height:auto}
+.knot [stroke]{stroke:var(--gilt);fill:none}
+.knot .bed{fill:rgba(47,92,64,.42);stroke:var(--hedge-lit)}
+
+/* every plan carries its scale */
+.scale{
+  display:block;
+  width:min(300px,76vw);
+  height:auto;
+  margin:3.25rem auto 0;
+}
+.scale [stroke]{stroke:var(--gilt);fill:none;stroke-width:1}
+.scale text{
+  fill:var(--gilt-lit);
+  font-family:var(--display);
+  font-size:8px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.scale .bar{fill:var(--gilt);stroke:none}
+
+/* ============================================================
+   3 — THE CHAMPION'S BOSQUET
+   ============================================================ */
+
+.bosquet{
+  position:relative;
+  isolation:isolate;
+  padding-block:clamp(3.75rem,9vw,6.5rem);
+  background:var(--canal-deep);
+  text-align:center;
+  border-top:var(--rule);
+}
+/* The enclosure: a bosquet is a room cut from the hedge, with hard edges and
+   a notched opening top and bottom where the axis enters and leaves. */
+.bosquet::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  transform:translateX(-50%);
+  top:clamp(7rem,15vw,11rem);
+  bottom:clamp(4.5rem,9vw,6.5rem);
+  width:min(780px,92vw);
+  background:linear-gradient(var(--hedge),#16301f);
+  border:1px solid rgba(192,145,63,.34);
+  clip-path:polygon(
+    0 0, 38% 0, 41% 3%, 59% 3%, 62% 0, 100% 0,
+    100% 100%, 62% 100%, 59% 97%, 41% 97%, 38% 100%, 0 100%);
+}
+
+.niche{
+  position:relative;
+  width:min(716px,92vw);
+  margin:2.75rem auto 0;
+  padding:clamp(12px,2.2vw,24px) clamp(12px,2.2vw,24px) 0;
+}
+/* the apse: a hedge alcove closed with a round head */
+.niche::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50% 50% 6px 6px / 26% 26% 6px 6px;
+  background:linear-gradient(var(--hedge-lit),var(--hedge) 62%);
+  box-shadow:
+    0 0 0 2px var(--gilt-deep),
+    0 26px 50px -18px rgba(0,0,0,.72),
+    0 3px 0 rgba(230,193,121,.22) inset;
+}
+.niche img{
+  position:relative;
+  width:100%;
+  border-radius:50% 50% 3px 3px / 24% 24% 3px 3px;
+}
+
+.plinth{
+  position:relative;
+  width:min(716px,92vw);
+  margin:0 auto;
+  padding:1.2rem 1.5rem 1.3rem;
+  background:linear-gradient(var(--marble),#cfc8b7);
+  color:var(--canal-deep);
+  box-shadow:0 16px 34px -14px rgba(0,0,0,.7);
+  border-top:3px solid var(--gilt);
+}
+.plinth .name{
+  font-family:var(--display);
+  font-size:clamp(1.8rem,1.2rem + 2.4vw,2.7rem);
+  font-weight:900;
+  letter-spacing:.14em;
+  line-height:1;
+  color:var(--canal-deep);
+}
+.plinth .title{
+  font-family:var(--display);
+  font-size:.7rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--bronze-ink);
+  margin-top:.6rem;
+}
+
+/* The cartellino: a marble tablet carrying the cameo, cut from the same
+   stock as the plinth — marble is this world's material for inscription. */
+.cameo{
+  display:flex;
+  align-items:center;
+  gap:1.3rem;
+  width:min(468px,92vw);
+  margin:3.25rem auto 0;
+  text-align:left;
+  padding:1.15rem 1.45rem;
+  background:linear-gradient(var(--marble),#d5cec0);
+  border-top:3px solid var(--gilt);
+  box-shadow:0 16px 34px -14px rgba(0,0,0,.7);
+}
+.cameo img{
+  flex:none;
+  width:92px;height:92px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:0 0 0 2px var(--gilt-deep),0 6px 14px -5px rgba(0,0,0,.55);
+}
+.cameo p{
+  font-size:1rem;
+  color:var(--canal);
+  font-style:italic;
+}
+
+/* ============================================================
+   4 — THE CROSS-VISTA  (the green theatres)
+   ============================================================ */
+
+.crossvista{
+  padding-block:clamp(3.75rem,9vw,6.5rem);
+  background:var(--canal);
+  border-top:var(--rule);
+}
+
+.theatres{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(.75rem,2vw,1.4rem);
+  margin-top:3rem;
+}
+
+.theatre{
+  position:relative;
+  padding:10px 10px 0;
+  background:linear-gradient(var(--hedge-lit),var(--hedge) 70%);
+  border-radius:50% 50% 2px 2px / 12% 12% 2px 2px;
+  box-shadow:0 0 0 1px var(--gilt-deep),0 20px 34px -20px rgba(0,0,0,.8);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.theatre:hover,.theatre:focus-within{
+  transform:translateY(-6px);
+  box-shadow:0 0 0 1px var(--gilt),0 28px 44px -20px rgba(0,0,0,.85);
+}
+.theatre img{
+  width:100%;
+  aspect-ratio:9/14;
+  object-fit:cover;
+  border-radius:50% 50% 1px 1px / 11% 11% 1px 1px;
+}
+.theatre figcaption{
+  padding:.7rem .2rem .85rem;
+  text-align:center;
+}
+.theatre .no{
+  font-family:var(--display);
+  font-size:.63rem;
+  letter-spacing:.3em;
+  color:var(--gilt-lit);
+}
+
+/* ============================================================
+   5 — THE FOUNTAIN CHAMBER  (the order)
+   ============================================================ */
+
+.chamber{
+  padding-block:clamp(3.75rem,9vw,6.5rem);
+  background:var(--canal-deep);
+  border-top:var(--rule);
+}
+
+.order{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:2.75rem;
+  font-variant-numeric:tabular-nums;
+}
+.order caption{
+  caption-side:bottom;
+  padding-top:1.5rem;
+  font-size:.88rem;
+  font-style:italic;
+  color:var(--ink-2);
+  text-align:center;
+}
+.order th{
+  font-family:var(--display);
+  font-size:.63rem;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gilt-lit);
+  text-align:left;
+  padding:0 .5rem .9rem;
+  border-bottom:1px solid rgba(192,145,63,.45);
+}
+.order th.num,.order td.num{text-align:right}
+.order td{
+  padding:.72rem .5rem;
+  border-bottom:1px solid rgba(192,145,63,.14);
+  vertical-align:middle;
+}
+.order tbody tr{transition:background .35s var(--ease)}
+.order tbody tr:hover{background:rgba(42,111,168,.16)}
+
+.order .rank{
+  font-family:var(--display);
+  font-size:.92rem;
+  color:var(--gilt);
+  width:2.5rem;
+}
+.order .angler{
+  font-family:var(--display);
+  letter-spacing:.1em;
+  font-size:.94rem;
+  white-space:nowrap;
+}
+.order .pts{
+  font-family:var(--display);
+  font-size:1.02rem;
+  color:var(--spray);
+}
+
+/* the basin cell: each angler is a fountain, jet height = standing */
+.basin{width:200px}
+.basin svg{width:100%;height:58px;display:block;overflow:visible}
+.basin .water{fill:var(--water);opacity:.5}
+.basin .lip{stroke:var(--gilt-deep);stroke-width:1.4;fill:none}
+.basin .column{fill:url(#jetgrad)}
+.basin .spray{stroke:var(--spray);stroke-width:1.6;fill:none;opacity:.5}
+.basin .jet{
+  transform-box:fill-box;
+  transform-origin:center bottom;
+}
+.js .basin .jet{transform:scaleY(.06)}
+.js .woke .basin .jet{
+  transform:scaleY(1);
+  transition:transform 1.25s var(--ease);
+}
+
+/* ============================================================
+   6 — THE GRAND CANAL  (the close)
+   ============================================================ */
+
+.close{
+  position:relative;
+  padding-block:clamp(4rem,10vw,7rem);
+  text-align:center;
+  /* The horizon lightens, but stops at basin so the gilt controls that sit
+     on it keep their contrast. */
+  background:linear-gradient(var(--canal-deep),var(--canal-lit) 62%,var(--basin));
+  border-top:var(--rule);
+  overflow:hidden;
+}
+.close h2{
+  font-size:clamp(1.4rem,1rem + 1.9vw,2.35rem);
+  font-weight:700;
+}
+.close .measure{margin-top:1.5rem}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.9rem;
+  justify-content:center;
+  margin-top:2.5rem;
+}
+
+.btn{
+  font-family:var(--display);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  padding:1.05rem 2.1rem;
+  border:1px solid var(--gilt);
+  background:transparent;
+  color:var(--gilt-lit);
+  cursor:pointer;
+  transition:background .35s var(--ease),color .35s var(--ease),
+             box-shadow .35s var(--ease),transform .35s var(--ease);
+}
+.btn:hover{
+  background:var(--gilt);
+  color:var(--canal-deep);
+  box-shadow:0 12px 26px -12px rgba(0,0,0,.62);
+}
+.btn:active{transform:translateY(1px)}
+.btn.primary{
+  background:var(--gilt);
+  color:var(--canal-deep);
+  border-color:var(--gilt-lit);
+}
+.btn.primary:hover{background:var(--gilt-lit);border-color:var(--marble)}
+.btn[data-state="done"]{
+  background:var(--hedge-lit);
+  border-color:var(--hedge-lit);
+  color:var(--marble);
+  box-shadow:none;
+}
+
+/* ============================================================
+   7 — THE WATERWORKS  (the labour beneath the spectacle)
+   ============================================================ */
+
+.waterworks{
+  background:#061c30;
+  padding-block:clamp(2.75rem,6vw,4rem);
+  font-size:.92rem;
+  color:var(--ink-2);
+  border-top:1px solid rgba(192,145,63,.28);
+}
+.waterworks h2{
+  font-size:.68rem;
+  letter-spacing:.3em;
+  color:var(--gilt);
+  font-weight:600;
+}
+.waterworks .cols{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:2rem 2.5rem;
+  margin-top:1.75rem;
+}
+.waterworks h3{
+  font-size:.62rem;
+  letter-spacing:.24em;
+  color:var(--marble);
+  margin-bottom:.7rem;
+  font-weight:600;
+}
+.waterworks ul{margin:0;padding-left:1.1rem}
+.waterworks li{margin-bottom:.35rem}
+.waterworks code{
+  font-family:var(--text);
+  font-style:italic;
+  color:var(--gilt-lit);
+}
+.colophon{
+  margin-top:2.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(192,145,63,.18);
+  text-align:center;
+  font-style:italic;
+  font-size:.88rem;
+}
+
+/* ============================================================
+   Responsive — the axis becomes a measured sequence
+   ============================================================ */
+
+@media (max-width:860px){
+  .theatres{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .legend{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:2.25rem;
+  }
+  .legend-bed{justify-items:center;text-align:center}
+  .legend-bed.right{text-align:center}
+  .legend-bed.right .legend-row{flex-direction:row}
+  .legend-row{max-width:22rem}
+  .knot{order:-1}
+}
+
+@media (max-width:560px){
+  .order .basin{display:none}
+  .order .angler{white-space:normal}
+  .terrace h1 .the{letter-spacing:.34em;text-indent:.34em}
+  .cameo{flex-direction:column;text-align:center;gap:.9rem}
+  .btn{width:100%;padding-inline:1rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+  .js .jet-rest,.js .woke .jet-rest,
+  .js .basin .jet,.js .woke .basin .jet{transform:scaleY(1) !important}
+}
+</style>
+</head>
+<body>
+<!--
+  DIRECTION CONTRACT — seed dd4bc116
+  THESIS: The league laid out as a formal water garden, every section a bosquet
+  off one great axis. Refuses the pro-tour hero-photo-plus-card-grid.
+  OWN-WORLD: Drenched canal blue with clipped-hedge green, gilt bronze, marble
+  and gravel buff; engraved inscriptional capitals, hairline flourishes, strict
+  mirrored symmetry, garden-plan geometry drawn as crisp vector.
+  STORY: A stranger sees an institution with an axis, a champion and a record,
+  believes the ceremony, and sends the link on.
+  FIRST VIEWPORT: Crest in a marble cartouche at the head of the axis, league
+  name in engraved caps beneath, one-point-perspective canal receding to the
+  horizon between mirrored parterres.
+  FORM: Versailles bosquet vistas — user-pinned over the roll's assignment
+  (candidate 3, the permit book); seed key dd4bc116.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the
+  finish review, the verdict, and DESIGN.md
+-->
+
+<!-- ============ 1 — THE GREAT AXIS ============ -->
+<header class="terrace" id="axis">
+  <div class="axis">
+    <div class="cartouche">
+      <img src="assets/web/crest.webp" width="640" height="640"
+           alt="The Competitive Fishing League crest.">
+    </div>
+
+    <h1><span class="the">The</span>Competitive Fishing League</h1>
+  </div>
+
+  <!-- The view from the terrace: one-point perspective down the canal. -->
+  <div class="vista" id="vista">
+    <svg viewBox="0 0 1600 620" role="img"
+         aria-label="An engraved plan view down the league's great axis: a canal
+                     narrowing to the horizon between mirrored clipped hedges and
+                     six fountains.">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0d3557"/>
+          <stop offset="1" stop-color="#2a6fa8"/>
+        </linearGradient>
+        <linearGradient id="canalg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5f9ec6"/>
+          <stop offset=".45" stop-color="#2a6fa8"/>
+          <stop offset="1" stop-color="#0d3557"/>
+        </linearGradient>
+        <linearGradient id="jetgrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dce9f2" stop-opacity=".05"/>
+          <stop offset=".45" stop-color="#dce9f2" stop-opacity=".8"/>
+          <stop offset="1" stop-color="#dce9f2" stop-opacity=".95"/>
+        </linearGradient>
+      </defs>
+
+      <!-- horizon -->
+      <rect x="0" y="0" width="1600" height="150" fill="url(#sky)"/>
+      <!-- ground -->
+      <rect x="0" y="150" width="1600" height="470" fill="#0a2b47"/>
+
+      <!-- raked gravel parterres, converging on the vanishing point -->
+      <defs>
+        <clipPath id="parterreL">
+          <polygon points="700,150 0,620 470,620 745,150"/>
+        </clipPath>
+        <clipPath id="parterreR">
+          <polygon points="900,150 1600,620 1130,620 855,150"/>
+        </clipPath>
+      </defs>
+      <g fill="#cbbfa4" opacity=".2">
+        <polygon points="700,150 0,620 470,620 745,150"/>
+        <polygon points="900,150 1600,620 1130,620 855,150"/>
+      </g>
+      <!-- the rake lines themselves, drawn to the vanishing point -->
+      <g stroke="#cbbfa4" stroke-width="1.5" opacity=".26" fill="none">
+        <g clip-path="url(#parterreL)">
+          <line x1="60"  y1="620" x2="722" y2="150"/>
+          <line x1="170" y1="620" x2="729" y2="150"/>
+          <line x1="280" y1="620" x2="735" y2="150"/>
+          <line x1="390" y1="620" x2="741" y2="150"/>
+        </g>
+        <g clip-path="url(#parterreR)">
+          <line x1="1540" y1="620" x2="878" y2="150"/>
+          <line x1="1430" y1="620" x2="871" y2="150"/>
+          <line x1="1320" y1="620" x2="865" y2="150"/>
+          <line x1="1210" y1="620" x2="859" y2="150"/>
+        </g>
+      </g>
+
+      <!-- clipped hedge blocks, mirrored, diminishing with distance -->
+      <g fill="#1b3a2a" stroke="#2f5c40" stroke-width="1">
+        <rect x="30"   y="470" width="300" height="120"/>
+        <rect x="1270" y="470" width="300" height="120"/>
+        <rect x="250"  y="356" width="215" height="86"/>
+        <rect x="1135" y="356" width="215" height="86"/>
+        <rect x="400"  y="286" width="152" height="60"/>
+        <rect x="1048" y="286" width="152" height="60"/>
+        <rect x="505"  y="238" width="108" height="42"/>
+        <rect x="987"  y="238" width="108" height="42"/>
+        <rect x="578"  y="204" width="76"  height="30"/>
+        <rect x="946"  y="204" width="76"  height="30"/>
+      </g>
+
+      <!-- the Grand Canal, tapering to the horizon -->
+      <polygon points="640,152 960,152 1180,620 420,620" fill="url(#canalg)"/>
+      <!-- coping -->
+      <g stroke="#c0913f" stroke-width="1.5" fill="none" opacity=".55">
+        <line x1="640" y1="152" x2="420" y2="620"/>
+        <line x1="960" y1="152" x2="1180" y2="620"/>
+      </g>
+      <!-- reflected light bands on the water -->
+      <g fill="#dce9f2" opacity=".1">
+        <polygon points="632,196 968,196 974,206 626,206"/>
+        <polygon points="609,266 991,266 999,280 601,280"/>
+        <polygon points="571,384 1029,384 1040,402 560,402"/>
+        <polygon points="527,520 1073,520 1086,542 514,542"/>
+      </g>
+
+      <!-- six fountains along the axis; they wake in sequence -->
+      <g>
+        <!-- far pair -->
+        <g transform="translate(700,214)">
+          <path class="jet-rest j1 jet" d="M-3 0 L0 -40 L3 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="2" rx="17" ry="5" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="2" rx="17" ry="5" fill="none" stroke="#c0913f" stroke-width="1"/>
+        </g>
+        <g transform="translate(900,214)">
+          <path class="jet-rest j2 jet" d="M-3 0 L0 -40 L3 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="2" rx="17" ry="5" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="2" rx="17" ry="5" fill="none" stroke="#c0913f" stroke-width="1"/>
+        </g>
+        <!-- middle pair -->
+        <g transform="translate(620,340)">
+          <path class="jet-rest j3 jet" d="M-5 0 L0 -74 L5 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="3" rx="30" ry="9" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="3" rx="30" ry="9" fill="none" stroke="#c0913f" stroke-width="1.2"/>
+        </g>
+        <g transform="translate(980,340)">
+          <path class="jet-rest j4 jet" d="M-5 0 L0 -74 L5 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="3" rx="30" ry="9" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="3" rx="30" ry="9" fill="none" stroke="#c0913f" stroke-width="1.2"/>
+        </g>
+        <!-- near pair, at the foot of the axis -->
+        <g transform="translate(520,516)">
+          <path class="jet-rest j5 jet" d="M-8 0 L0 -128 L8 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="5" rx="50" ry="15" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="5" rx="50" ry="15" fill="none" stroke="#c0913f" stroke-width="1.5"/>
+        </g>
+        <g transform="translate(1080,516)">
+          <path class="jet-rest j6 jet" d="M-8 0 L0 -128 L8 0 Z" fill="url(#jetgrad)"/>
+          <ellipse cx="0" cy="5" rx="50" ry="15" fill="#2a6fa8"/>
+          <ellipse cx="0" cy="5" rx="50" ry="15" fill="none" stroke="#c0913f" stroke-width="1.5"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2 — THE PARTERRE ============ -->
+<section class="parterre" aria-labelledby="parterre-h">
+  <div class="axis">
+    <h2 id="parterre-h" class="plate" style="text-align:center">The plan of the league</h2>
+
+    <div class="legend">
+      <dl class="legend-bed">
+        <div class="legend-row">
+          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none">
+            <circle cx="20" cy="20" r="15" stroke-width="1.2"/>
+            <path d="M20 5v30M5 20h30" stroke-width="1.2"/>
+          </svg>
+          <div>
+            <dt>The axis</dt>
+            <dd>One league, run end to end.
+              <small>Everything answers to the same line.</small></dd>
+          </div>
+        </div>
+        <div class="legend-row">
+          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none">
+            <rect x="6" y="12" width="28" height="16" stroke-width="1.2"/>
+            <path d="M13 12v16M20 12v16M27 12v16" stroke-width="1.2"/>
+          </svg>
+          <div>
+            <dt>The bosquets</dt>
+            <dd>Every outing its own green theatre.
+              <small>What happens there is entered in the record.</small></dd>
+          </div>
+        </div>
+      </dl>
+
+      <svg class="knot" viewBox="0 0 120 120" aria-hidden="true">
+        <rect class="bed" x="6" y="6" width="108" height="108" stroke-width="1.4"/>
+        <circle cx="60" cy="60" r="30" stroke-width="1.2" fill="none"/>
+        <path d="M60 30c22 0 30 12 30 30s-8 30-30 30-30-12-30-30 8-30 30-30"
+              stroke-width="1.2" fill="none"/>
+        <path d="M30 60c0-22 12-30 30-30s30 8 30 30-12 30-30 30-30-8-30-30"
+              stroke-width="1.2" fill="none"/>
+        <circle cx="60" cy="60" r="7" stroke-width="1.2" fill="none"/>
+        <circle cx="60" cy="60" r="2.5" fill="#c0913f" stroke="none"/>
+      </svg>
+
+      <dl class="legend-bed right">
+        <div class="legend-row">
+          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none">
+            <path d="M20 33V16" stroke-width="1.2"/>
+            <ellipse cx="20" cy="33" rx="13" ry="4" stroke-width="1.2"/>
+            <path d="M20 16c0-6 5-9 5-9s-2 5 0 9" stroke-width="1.2"/>
+          </svg>
+          <div>
+            <dt>The fountains</dt>
+            <dd>The standing, read at a glance.
+              <small>The higher the jet, the better the season.</small></dd>
+          </div>
+        </div>
+        <div class="legend-row">
+          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none">
+            <circle cx="20" cy="14" r="7" stroke-width="1.2"/>
+            <path d="M9 34c0-7 5-11 11-11s11 4 11 11" stroke-width="1.2"/>
+          </svg>
+          <div>
+            <dt>The statue</dt>
+            <dd>One champion holds the head of the garden.
+              <small>He stays there until somebody takes it.</small></dd>
+          </div>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Every engraved plan carries its scale. Toises, as the originals did. -->
+    <svg class="scale" viewBox="0 0 260 36" role="img"
+         aria-label="Plan scale, marked in toises.">
+      <g class="bar">
+        <rect x="20"  y="12" width="30" height="6"/>
+        <rect x="80"  y="12" width="30" height="6"/>
+        <rect x="140" y="12" width="30" height="6"/>
+      </g>
+      <rect x="20" y="12" width="180" height="6" stroke="currentColor"/>
+      <g stroke="currentColor">
+        <line x1="20"  y1="18" x2="20"  y2="23"/>
+        <line x1="80"  y1="18" x2="80"  y2="23"/>
+        <line x1="140" y1="18" x2="140" y2="23"/>
+        <line x1="200" y1="18" x2="200" y2="23"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="20"  y="32">0</text>
+        <text x="80"  y="32">10</text>
+        <text x="140" y="32">20</text>
+        <text x="200" y="32">30</text>
+      </g>
+      <text x="212" y="19">Toises</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 3 — THE CHAMPION'S BOSQUET ============ -->
+<section class="bosquet" aria-labelledby="champ-h">
+  <div class="axis">
+    <h2 id="champ-h" style="font-size:clamp(1.35rem,1rem + 1.7vw,2.15rem)">
+      At the head of the garden
+    </h2>
+
+    <svg class="flourish" viewBox="0 0 340 14" aria-hidden="true">
+      <line x1="0" y1="7" x2="140" y2="7"/>
+      <line x1="200" y1="7" x2="340" y2="7"/>
+      <path d="M140 7c8-7 16-7 22 0s14 7 22 0"/>
+      <circle cx="170" cy="7" r="2.2"/>
+    </svg>
+
+    <figure class="niche" style="margin-bottom:0">
+      <img src="assets/web/champion-big.webp" width="680" height="664"
+           alt="The reigning champion of the Competitive Fishing League.">
+    </figure>
+    <div class="plinth">
+      <div class="name">Liam</div>
+      <div class="title">Reigning Champion</div>
+    </div>
+
+    <div class="cameo">
+      <img src="assets/web/liam.webp" width="338" height="332" alt="Liam, in the league's colours.">
+      <p>The garden is laid out around whoever is winning it. At present, that is Liam —
+         and the whole axis points at him until it doesn't.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 — THE CROSS-VISTA ============ -->
+<section class="crossvista" aria-labelledby="vista-h">
+  <div class="axis">
+    <h2 id="vista-h" style="font-size:clamp(1.35rem,1rem + 1.7vw,2.15rem);text-align:center">
+      The green theatres
+    </h2>
+    <p class="measure" style="text-align:center;margin-top:1.1rem;color:var(--ink-2)">
+      Off the main axis, the hedges open into rooms. This is what the league looks like
+      from inside one.
+    </p>
+
+    <div class="theatres">
+      <figure class="theatre">
+        <img src="assets/web/fishing1.webp" width="820" height="1229" loading="lazy"
+             alt="A day from the Competitive Fishing League archive.">
+        <figcaption><span class="no">Plate I</span></figcaption>
+      </figure>
+      <figure class="theatre">
+        <img src="assets/web/fishing2.webp" width="820" height="1457" loading="lazy"
+             alt="A day from the Competitive Fishing League archive.">
+        <figcaption><span class="no">Plate II</span></figcaption>
+      </figure>
+      <figure class="theatre">
+        <img src="assets/web/fishing3.webp" width="820" height="1230" loading="lazy"
+             alt="A day from the Competitive Fishing League archive.">
+        <figcaption><span class="no">Plate III</span></figcaption>
+      </figure>
+      <figure class="theatre">
+        <img src="assets/web/fishing4.webp" width="820" height="1457" loading="lazy"
+             alt="A day from the Competitive Fishing League archive.">
+        <figcaption><span class="no">Plate IV</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 — THE FOUNTAIN CHAMBER ============ -->
+<section class="chamber" aria-labelledby="order-h" id="order">
+  <div class="axis">
+    <h2 id="order-h" style="font-size:clamp(1.35rem,1rem + 1.7vw,2.15rem);text-align:center">
+      The order of the fountains
+    </h2>
+    <p class="measure" style="text-align:center;margin-top:1.1rem;color:var(--ink-2)">
+      Every angler is given a basin. The season decides how high it plays.
+    </p>
+
+    <table class="order">
+      <caption>
+        Standings shown are placeholder entries — replace the names and points
+        with the league's own record.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" style="width:2.5rem">№</th>
+          <th scope="col">Angler</th>
+          <th scope="col" aria-label="Jet height"></th>
+          <th scope="col" class="num">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td class="angler">A. Whitlock</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.00s">
+                <path class="column" d="M83 46 L90 0 L97 46 Z"/>
+                <path class="spray" d="M90 0 Q 116.2 26.7 132.3 46"/>
+                <path class="spray" d="M90 0 Q 63.8 26.7 47.7 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">412</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td class="angler">D. Mercer</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.09s">
+                <path class="column" d="M83 46 L90 2 L97 46 Z"/>
+                <path class="spray" d="M90 2 Q 115.1 27.5 130.5 46"/>
+                <path class="spray" d="M90 2 Q 64.9 27.5 49.5 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">388</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td class="angler">S. Kane</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.18s">
+                <path class="column" d="M83 46 L90 5 L97 46 Z"/>
+                <path class="spray" d="M90 5 Q 113.4 28.8 127.7 46"/>
+                <path class="spray" d="M90 5 Q 66.6 28.8 52.3 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">351</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td class="angler">R. Okonkwo</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.27s">
+                <path class="column" d="M83 46 L90 6 L97 46 Z"/>
+                <path class="spray" d="M90 6 Q 112.8 29.2 126.8 46"/>
+                <path class="spray" d="M90 6 Q 67.2 29.2 53.2 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">329</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td class="angler">J. Halloran</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.36s">
+                <path class="column" d="M83 46 L90 9 L97 46 Z"/>
+                <path class="spray" d="M90 9 Q 111.1 30.5 124.0 46"/>
+                <path class="spray" d="M90 9 Q 68.9 30.5 56.0 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">296</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td class="angler">T. Brennan</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.45s">
+                <path class="column" d="M83 46 L90 11 L97 46 Z"/>
+                <path class="spray" d="M90 11 Q 110.0 31.3 122.2 46"/>
+                <path class="spray" d="M90 11 Q 70.0 31.3 57.8 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">264</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td class="angler">M. Fairweather</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.54s">
+                <path class="column" d="M83 46 L90 14 L97 46 Z"/>
+                <path class="spray" d="M90 14 Q 108.2 32.6 119.4 46"/>
+                <path class="spray" d="M90 14 Q 71.8 32.6 60.6 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">231</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td class="angler">C. Dunne</td>
+          <td class="basin">
+            <svg viewBox="0 0 180 58" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+              <g class="jet" style="transition-delay:0.63s">
+                <path class="column" d="M83 46 L90 17 L97 46 Z"/>
+                <path class="spray" d="M90 17 Q 106.6 33.8 116.7 46"/>
+                <path class="spray" d="M90 17 Q 73.4 33.8 63.3 46"/>
+              </g>
+              <ellipse class="water" cx="90" cy="46" rx="62" ry="9"/>
+              <ellipse class="lip"   cx="90" cy="46" rx="62" ry="9"/>
+            </svg>
+          </td>
+          <td class="num pts">187</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 6 — THE GRAND CANAL ============ -->
+<section class="close" aria-labelledby="close-h">
+  <div class="axis">
+    <h2 id="close-h">Carry it down the canal</h2>
+    <p class="measure">
+      A league is only as big as the number of people who have heard of it.
+      Send this to somebody who owns a rod.
+    </p>
+    <div class="actions">
+      <button class="btn primary" id="share" type="button" data-state="idle">
+        Copy the link
+      </button>
+      <a class="btn" href="#axis">Back to the terrace</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 7 — THE WATERWORKS ============ -->
+<footer class="waterworks" aria-labelledby="works-h">
+  <div class="axis">
+    <h2 id="works-h">The waterworks</h2>
+    <p class="measure" style="margin-inline:0">
+      Every garden like this one hides its machinery. Here is ours, so nothing on the
+      page pretends to be something it isn't.
+    </p>
+
+    <div class="cols">
+      <div>
+        <h3>Real</h3>
+        <ul>
+          <li>The crest, the champion portrait and all four plates.</li>
+          <li>Liam, reigning champion.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Placeholder — replace before sharing widely</h3>
+        <ul>
+          <li>Every name and figure in <code>the order of the fountains</code>.</li>
+          <li>The standings of <code>the order of the fountains</code>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Deliberately unstated</h3>
+        <ul>
+          <li>Waters, species, venues and dates.</li>
+          <li>Rules, scoring and membership.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="colophon">
+      The Competitive Fishing League · laid out after the manner of a formal water garden
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* The standings are static markup, so the table is complete and readable
+     with scripting off. This file only animates what is already there. */
+
+  /* --- The one authored moment: the fountains wake in sequence. ---
+     Position-checked rather than observed, so a jumped scroll or a deep link
+     still leaves every jet playing instead of stranded at rest. */
+  var pending = Array.prototype.slice.call(document.querySelectorAll("#vista, #order"));
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ticking = false;
+
+  function wake(){
+    ticking = false;
+    for (var i = pending.length - 1; i >= 0; i--){
+      var el = pending[i];
+      // Woken once any part reaches the lower viewport — or has already passed it.
+      if (reduced || el.getBoundingClientRect().top < window.innerHeight * 0.85){
+        el.classList.add("woke");
+        pending.splice(i, 1);
+      }
+    }
+    if (!pending.length){
+      window.removeEventListener("scroll", onMove);
+      window.removeEventListener("resize", onMove);
+    }
+  }
+
+  function onMove(){
+    if (!ticking){ ticking = true; requestAnimationFrame(wake); }
+  }
+
+  window.addEventListener("scroll", onMove, {passive:true});
+  window.addEventListener("resize", onMove);
+  wake();
+
+  /* --- Copy the link, with real states. --- */
+  var btn = document.getElementById("share");
+  var LABEL = btn.textContent.trim();
+
+  btn.addEventListener("click", function(){
+    var url = location.href;
+    var done = function(ok){
+      btn.dataset.state = ok ? "done" : "idle";
+      btn.textContent = ok ? "Copied — now send it" : "Press ⌘C to copy";
+      setTimeout(function(){
+        btn.dataset.state = "idle";
+        btn.textContent = LABEL;
+      }, 2600);
+    };
+
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(url).then(function(){ done(true); },
+                                             function(){ done(false); });
+    } else {
+      var f = document.createElement("textarea");
+      f.value = url;
+      f.setAttribute("readonly","");
+      f.style.cssText = "position:absolute;left:-9999px";
+      document.body.appendChild(f);
+      f.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch(err){ ok = false; }
+      document.body.removeChild(f);
+      done(ok);
+    }
+  });
+})();
+</script>
+</body>
+</html>

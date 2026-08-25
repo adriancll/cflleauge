@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-25T14:11:34Z",
+  "title": "Design System: The Competitive Fishing League",
+  "extensions": {
+    "colorMeta": {
+      "canal-deep": {
+        "role": "secondary",
+        "displayName": "Canal Deep",
+        "canonical": "oklch(25.4% 0.058 249.1)",
+        "tonalRamp": [
+          "oklch(0.150 0.058 249.1)",
+          "oklch(0.264 0.058 249.1)",
+          "oklch(0.379 0.058 249.1)",
+          "oklch(0.493 0.058 249.1)",
+          "oklch(0.607 0.058 249.1)",
+          "oklch(0.721 0.058 249.1)",
+          "oklch(0.836 0.058 249.1)",
+          "oklch(0.950 0.058 249.1)"
+        ]
+      },
+      "canal": {
+        "role": "secondary",
+        "displayName": "Canal",
+        "canonical": "oklch(32.1% 0.075 248.5)",
+        "tonalRamp": [
+          "oklch(0.150 0.075 248.5)",
+          "oklch(0.264 0.075 248.5)",
+          "oklch(0.379 0.075 248.5)",
+          "oklch(0.493 0.075 248.5)",
+          "oklch(0.607 0.075 248.5)",
+          "oklch(0.721 0.075 248.5)",
+          "oklch(0.836 0.075 248.5)",
+          "oklch(0.950 0.075 248.5)"
+        ]
+      },
+      "canal-lit": {
+        "role": "secondary",
+        "displayName": "Canal, Lit",
+        "canonical": "oklch(35.9% 0.083 248.8)",
+        "tonalRamp": [
+          "oklch(0.150 0.083 248.8)",
+          "oklch(0.264 0.083 248.8)",
+          "oklch(0.379 0.083 248.8)",
+          "oklch(0.493 0.083 248.8)",
+          "oklch(0.607 0.083 248.8)",
+          "oklch(0.721 0.083 248.8)",
+          "oklch(0.836 0.083 248.8)",
+          "oklch(0.950 0.083 248.8)"
+        ]
+      },
+      "basin": {
+        "role": "secondary",
+        "displayName": "Basin",
+        "canonical": "oklch(39.8% 0.099 250.6)",
+        "tonalRamp": [
+          "oklch(0.150 0.099 250.6)",
+          "oklch(0.264 0.099 250.6)",
+          "oklch(0.379 0.099 250.6)",
+          "oklch(0.493 0.099 250.6)",
+          "oklch(0.607 0.099 250.6)",
+          "oklch(0.721 0.099 250.6)",
+          "oklch(0.836 0.099 250.6)",
+          "oklch(0.950 0.099 250.6)"
+        ]
+      },
+      "water": {
+        "role": "secondary",
+        "displayName": "Water",
+        "canonical": "oklch(52.6% 0.113 247.2)",
+        "tonalRamp": [
+          "oklch(0.150 0.113 247.2)",
+          "oklch(0.264 0.113 247.2)",
+          "oklch(0.379 0.113 247.2)",
+          "oklch(0.493 0.113 247.2)",
+          "oklch(0.607 0.113 247.2)",
+          "oklch(0.721 0.113 247.2)",
+          "oklch(0.836 0.113 247.2)",
+          "oklch(0.950 0.113 247.2)"
+        ]
+      },
+      "spray": {
+        "role": "secondary",
+        "displayName": "Spray",
+        "canonical": "oklch(92.7% 0.019 237.8)",
+        "tonalRamp": [
+          "oklch(0.150 0.019 237.8)",
+          "oklch(0.264 0.019 237.8)",
+          "oklch(0.379 0.019 237.8)",
+          "oklch(0.493 0.019 237.8)",
+          "oklch(0.607 0.019 237.8)",
+          "oklch(0.721 0.019 237.8)",
+          "oklch(0.836 0.019 237.8)",
+          "oklch(0.950 0.019 237.8)"
+        ]
+      },
+      "marble": {
+        "role": "neutral",
+        "displayName": "Marble",
+        "canonical": "oklch(92.9% 0.017 88.0)",
+        "tonalRamp": [
+          "oklch(0.150 0.017 88.0)",
+          "oklch(0.264 0.017 88.0)",
+          "oklch(0.379 0.017 88.0)",
+          "oklch(0.493 0.017 88.0)",
+          "oklch(0.607 0.017 88.0)",
+          "oklch(0.721 0.017 88.0)",
+          "oklch(0.836 0.017 88.0)",
+          "oklch(0.950 0.017 88.0)"
+        ]
+      },
+      "gravel": {
+        "role": "neutral",
+        "displayName": "Gravel Buff",
+        "canonical": "oklch(80.7% 0.039 86.9)",
+        "tonalRamp": [
+          "oklch(0.150 0.039 86.9)",
+          "oklch(0.264 0.039 86.9)",
+          "oklch(0.379 0.039 86.9)",
+          "oklch(0.493 0.039 86.9)",
+          "oklch(0.607 0.039 86.9)",
+          "oklch(0.721 0.039 86.9)",
+          "oklch(0.836 0.039 86.9)",
+          "oklch(0.950 0.039 86.9)"
+        ]
+      },
+      "hedge": {
+        "role": "tertiary",
+        "displayName": "Hedge",
+        "canonical": "oklch(31.9% 0.047 159.6)",
+        "tonalRamp": [
+          "oklch(0.150 0.047 159.6)",
+          "oklch(0.264 0.047 159.6)",
+          "oklch(0.379 0.047 159.6)",
+          "oklch(0.493 0.047 159.6)",
+          "oklch(0.607 0.047 159.6)",
+          "oklch(0.721 0.047 159.6)",
+          "oklch(0.836 0.047 159.6)",
+          "oklch(0.950 0.047 159.6)"
+        ]
+      },
+      "hedge-lit": {
+        "role": "tertiary",
+        "displayName": "Hedge, Lit",
+        "canonical": "oklch(43.4% 0.069 155.0)",
+        "tonalRamp": [
+          "oklch(0.150 0.069 155.0)",
+          "oklch(0.264 0.069 155.0)",
+          "oklch(0.379 0.069 155.0)",
+          "oklch(0.493 0.069 155.0)",
+          "oklch(0.607 0.069 155.0)",
+          "oklch(0.721 0.069 155.0)",
+          "oklch(0.836 0.069 155.0)",
+          "oklch(0.950 0.069 155.0)"
+        ]
+      },
+      "gilt": {
+        "role": "primary",
+        "displayName": "Gilt Bronze",
+        "canonical": "oklch(68.6% 0.114 78.7)",
+        "tonalRamp": [
+          "oklch(0.150 0.114 78.7)",
+          "oklch(0.264 0.114 78.7)",
+          "oklch(0.379 0.114 78.7)",
+          "oklch(0.493 0.114 78.7)",
+          "oklch(0.607 0.114 78.7)",
+          "oklch(0.721 0.114 78.7)",
+          "oklch(0.836 0.114 78.7)",
+          "oklch(0.950 0.114 78.7)"
+        ]
+      },
+      "gilt-lit": {
+        "role": "primary",
+        "displayName": "Gilt, Lit",
+        "canonical": "oklch(82.8% 0.100 83.2)",
+        "tonalRamp": [
+          "oklch(0.150 0.100 83.2)",
+          "oklch(0.264 0.100 83.2)",
+          "oklch(0.379 0.100 83.2)",
+          "oklch(0.493 0.100 83.2)",
+          "oklch(0.607 0.100 83.2)",
+          "oklch(0.721 0.100 83.2)",
+          "oklch(0.836 0.100 83.2)",
+          "oklch(0.950 0.100 83.2)"
+        ]
+      },
+      "gilt-deep": {
+        "role": "primary",
+        "displayName": "Gilt, Deep",
+        "canonical": "oklch(53.2% 0.094 78.1)",
+        "tonalRamp": [
+          "oklch(0.150 0.094 78.1)",
+          "oklch(0.264 0.094 78.1)",
+          "oklch(0.379 0.094 78.1)",
+          "oklch(0.493 0.094 78.1)",
+          "oklch(0.607 0.094 78.1)",
+          "oklch(0.721 0.094 78.1)",
+          "oklch(0.836 0.094 78.1)",
+          "oklch(0.950 0.094 78.1)"
+        ]
+      },
+      "bronze-ink": {
+        "role": "primary",
+        "displayName": "Bronze Ink",
+        "canonical": "oklch(42.0% 0.079 75.2)",
+        "tonalRamp": [
+          "oklch(0.150 0.079 75.2)",
+          "oklch(0.264 0.079 75.2)",
+          "oklch(0.379 0.079 75.2)",
+          "oklch(0.493 0.079 75.2)",
+          "oklch(0.607 0.079 75.2)",
+          "oklch(0.721 0.079 75.2)",
+          "oklch(0.836 0.079 75.2)",
+          "oklch(0.950 0.079 75.2)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(80.1% 0.040 241.2)",
+        "tonalRamp": [
+          "oklch(0.150 0.040 241.2)",
+          "oklch(0.264 0.040 241.2)",
+          "oklch(0.379 0.040 241.2)",
+          "oklch(0.493 0.040 241.2)",
+          "oklch(0.607 0.040 241.2)",
+          "oklch(0.721 0.040 241.2)",
+          "oklch(0.836 0.040 241.2)",
+          "oklch(0.950 0.040 241.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The terrace title only \u2014 the league name under the cartouche."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads, centered on the axis."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The champion's name on the marble plinth."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running prose and the italic annotation voice, capped at 66ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "The plate-label voice: column heads, legend terms, plate numbers, buttons, small headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "marble-umbra",
+        "value": "0 16px 34px -14px rgba(0,0,0,.7)",
+        "purpose": "Under the plinth and the cameo \u2014 marble slabs lifted off the hedge."
+      },
+      {
+        "name": "niche-umbra",
+        "value": "0 26px 50px -18px rgba(0,0,0,.72)",
+        "purpose": "Under the champion's hedge alcove, with an inset gilt-lit top edge."
+      },
+      {
+        "name": "theatre-umbra",
+        "value": "0 20px 34px -20px rgba(0,0,0,.8)",
+        "purpose": "Under theatre frames; deepens to 0 28px 44px -20px rgba(0,0,0,.85) as the frame lifts on hover."
+      },
+      {
+        "name": "inscription-rings",
+        "value": "0 2px 3px rgba(255,255,255,.28) inset, 0 18px 38px -12px rgba(0,0,0,.62), 0 0 0 5px var(--canal-deep), 0 0 0 6px var(--gilt-deep), 0 0 0 10px var(--canal-deep), 0 0 0 11px rgba(192,145,63,.5)",
+        "purpose": "The cartouche's engraved concentric ring structure."
+      },
+      {
+        "name": "title-legibility",
+        "value": "0 2px 18px rgba(0,0,0,.45)",
+        "purpose": "Soft text-shadow under the terrace title over the sky gradient."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-of-the-garden",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "The single easing curve (--ease) for every transition on the page."
+      },
+      {
+        "name": "wake-vista",
+        "value": "transform 1.5s, delays .05s-.9s across j1-j6",
+        "purpose": "The vista's six fountains rise in sequence when #vista wakes."
+      },
+      {
+        "name": "wake-basin",
+        "value": "transform 1.25s, delays .00s-.63s per row",
+        "purpose": "The order's basin jets rise in sequence when #order wakes."
+      },
+      {
+        "name": "state-transitions",
+        "value": ".35s for buttons and row highlights, .5s for theatre lifts",
+        "purpose": "Quiet state transitions; the wake is the only authored animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "860px",
+        "purpose": "Mirrored legend collapses to a single centered column; theatres go two-across."
+      },
+      {
+        "name": "phone",
+        "value": "560px",
+        "purpose": "Order drops the basin column, angler names wrap, cameo stacks, buttons go full-width."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The share action \u2014 a filled-gilt engraved control with square corners.",
+      "html": "<button class=\"ds-btn ds-btn-primary\" type=\"button\">Copy the link</button>",
+      "css": ".ds-btn{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;padding:1.05rem 2.1rem;border:1px solid var(--gilt);background:transparent;color:var(--gilt-lit);cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--gilt-lit);outline-offset:3px}.ds-btn-primary{background:var(--gilt);color:var(--canal-deep);border-color:var(--gilt-lit)}.ds-btn-primary:hover{background:var(--gilt-lit);border-color:var(--marble)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action \u2014 an outlined gilt inscription that fills on hover.",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#axis\">Back to the terrace</a>",
+      "css": ".ds-btn{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;padding:1.05rem 2.1rem;border:1px solid var(--gilt);background:transparent;color:var(--gilt-lit);cursor:pointer;text-decoration:none;transition:background .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--gilt-lit);outline-offset:3px}.ds-btn-ghost:hover{background:var(--gilt);color:var(--canal-deep);box-shadow:0 12px 26px -12px rgba(0,0,0,.62)}"
+    },
+    {
+      "name": "Done Button",
+      "kind": "button",
+      "refersTo": "button-done",
+      "description": "The share button's confirmation state \u2014 the only green control in the system.",
+      "html": "<button class=\"ds-btn ds-btn-done\" type=\"button\">Copied \u2014 now send it</button>",
+      "css": ".ds-btn{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;padding:1.05rem 2.1rem;border:1px solid var(--gilt);background:transparent;color:var(--gilt-lit);cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}.ds-btn:focus-visible{outline:2px solid var(--gilt-lit);outline-offset:3px}.ds-btn-done{background:var(--hedge-lit);border-color:var(--hedge-lit);color:var(--marble);box-shadow:none}.ds-btn-done:hover{background:var(--hedge-lit);border-color:var(--hedge-lit);color:var(--marble);box-shadow:none}"
+    },
+    {
+      "name": "Plate Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The engraved annotation voice that heads a plan section.",
+      "html": "<h2 class=\"ds-plate\">The plan of the league</h2>",
+      "css": ".ds-plate{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gilt-lit);margin:0;text-align:center}"
+    },
+    {
+      "name": "Marble Plinth",
+      "kind": "custom",
+      "description": "A marble slab carrying the champion's inscription \u2014 gilt edge, bronze ink.",
+      "html": "<div class=\"ds-plinth\"><div class=\"ds-plinth-name\">Liam</div><div class=\"ds-plinth-title\">Reigning Champion</div></div>",
+      "css": ".ds-plinth{max-width:716px;margin:0 auto;text-align:center;padding:1.2rem 1.5rem 1.3rem;background:linear-gradient(var(--marble),#cfc8b7);border-top:3px solid var(--gilt);box-shadow:0 16px 34px -14px rgba(0,0,0,.7)}.ds-plinth-name{font-family:var(--display);font-size:clamp(1.6rem,1.1rem + 2vw,2.3rem);font-weight:900;letter-spacing:.14em;line-height:1;color:var(--canal-deep);text-transform:uppercase}.ds-plinth-title{font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze-ink);margin-top:.6rem}"
+    },
+    {
+      "name": "Cameo Cartellino",
+      "kind": "custom",
+      "description": "A marble tablet: the champion's roundel beside an italic note in canal.",
+      "html": "<div class=\"ds-cameo\"><div class=\"ds-cameo-img\"></div><p class=\"ds-cameo-text\">The garden is laid out around whoever is winning it.</p></div>",
+      "css": ".ds-cameo{display:flex;align-items:center;gap:1.3rem;max-width:468px;margin:0 auto;text-align:left;padding:1.15rem 1.45rem;background:linear-gradient(var(--marble),#d5cec0);border-top:3px solid var(--gilt);box-shadow:0 16px 34px -14px rgba(0,0,0,.7)}.ds-cameo-img{flex:none;width:92px;height:92px;border-radius:50%;background:linear-gradient(var(--hedge-lit),var(--hedge));box-shadow:0 0 0 2px var(--gilt-deep),0 6px 14px -5px rgba(0,0,0,.55)}.ds-cameo-text{margin:0;font-family:var(--text);font-size:1rem;font-style:italic;color:var(--canal)}"
+    },
+    {
+      "name": "Green Theatre",
+      "kind": "card",
+      "description": "An outing framed as a room cut from the hedge \u2014 arched top, gilt ring, plate number.",
+      "html": "<figure class=\"ds-theatre\"><div class=\"ds-theatre-img\"></div><figcaption><span class=\"ds-theatre-no\">Plate I</span></figcaption></figure>",
+      "css": ".ds-theatre{padding:10px 10px 0;background:linear-gradient(var(--hedge-lit),var(--hedge) 70%);border-radius:50% 50% 2px 2px / 12% 12% 2px 2px;box-shadow:0 0 0 1px var(--gilt-deep),0 20px 34px -20px rgba(0,0,0,.8);transition:transform .5s var(--ease),box-shadow .5s var(--ease);max-width:220px}.ds-theatre:hover,.ds-theatre:focus-within{transform:translateY(-6px);box-shadow:0 0 0 1px var(--gilt),0 28px 44px -20px rgba(0,0,0,.85)}.ds-theatre-img{width:100%;aspect-ratio:9/14;background:linear-gradient(var(--canal-lit),var(--canal-deep));border-radius:50% 50% 1px 1px / 11% 11% 1px 1px}.ds-theatre-no{display:block;text-align:center;padding:.7rem .2rem .85rem;font-family:var(--display);font-size:.63rem;font-weight:600;letter-spacing:.3em;color:var(--gilt-lit)}"
+    },
+    {
+      "name": "Fountain Basin",
+      "kind": "custom",
+      "description": "The standings' miniature fountain \u2014 jet height encodes the standing.",
+      "html": "<svg class=\"ds-basin\" viewBox=\"0 0 180 58\" aria-hidden=\"true\"><defs><linearGradient id=\"ds-jetgrad\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#dce9f2\" stop-opacity=\".05\"/><stop offset=\".45\" stop-color=\"#dce9f2\" stop-opacity=\".8\"/><stop offset=\"1\" stop-color=\"#dce9f2\" stop-opacity=\".95\"/></linearGradient></defs><g class=\"ds-basin-jet\"><path class=\"ds-column\" d=\"M83 46 L90 0 L97 46 Z\"/><path class=\"ds-spray\" d=\"M90 0 Q 116.2 26.7 132.3 46\"/><path class=\"ds-spray\" d=\"M90 0 Q 63.8 26.7 47.7 46\"/></g><ellipse class=\"ds-water\" cx=\"90\" cy=\"46\" rx=\"62\" ry=\"9\"/><ellipse class=\"ds-lip\" cx=\"90\" cy=\"46\" rx=\"62\" ry=\"9\"/></svg>",
+      "css": ".ds-basin{width:200px;height:58px;display:block;overflow:visible}.ds-basin .ds-column{fill:url(#ds-jetgrad)}.ds-basin .ds-spray{stroke:var(--spray);stroke-width:1.6;fill:none;opacity:.5}.ds-basin .ds-water{fill:var(--water);opacity:.5}.ds-basin .ds-lip{stroke:var(--gilt-deep);stroke-width:1.4;fill:none}"
+    },
+    {
+      "name": "Cartouche Medallion",
+      "kind": "custom",
+      "description": "The marble medallion holding the crest, ringed in canal and gilt.",
+      "html": "<div class=\"ds-cartouche\"><div class=\"ds-cartouche-crest\"></div></div>",
+      "css": ".ds-cartouche{position:relative;width:clamp(132px,20vw,178px);aspect-ratio:1;margin:0 auto;display:grid;place-items:center}.ds-cartouche::before{content:\"\";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fbf8f1,var(--marble) 52%,#cfc8b7);box-shadow:0 2px 3px rgba(255,255,255,.28) inset,0 18px 38px -12px rgba(0,0,0,.62),0 0 0 5px var(--canal-deep),0 0 0 6px var(--gilt-deep),0 0 0 10px var(--canal-deep),0 0 0 11px rgba(192,145,63,.5)}.ds-cartouche-crest{position:relative;width:80%;height:80%;border-radius:50%;background:radial-gradient(circle at 50% 40%,var(--canal-lit),var(--canal-deep) 70%)}"
+    },
+    {
+      "name": "Flourish",
+      "kind": "custom",
+      "description": "The hairline flourish divider \u2014 1px gilt geometry with a center circle.",
+      "html": "<svg class=\"ds-flourish\" viewBox=\"0 0 340 14\" aria-hidden=\"true\"><line x1=\"0\" y1=\"7\" x2=\"140\" y2=\"7\"/><line x1=\"200\" y1=\"7\" x2=\"340\" y2=\"7\"/><path d=\"M140 7c8-7 16-7 22 0s14 7 22 0\"/><circle cx=\"170\" cy=\"7\" r=\"2.2\"/></svg>",
+      "css": ".ds-flourish{display:block;width:100%;max-width:340px;height:14px;margin:1.5rem auto;overflow:visible}.ds-flourish path,.ds-flourish line,.ds-flourish circle{stroke:var(--gilt);fill:none;stroke-width:1;vector-effect:non-scaling-stroke}.ds-flourish circle{fill:var(--gilt)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engraved Water Garden",
+    "overview": "The Competitive Fishing League presents itself as an institution laid out like a formal water garden: the league as a great estate whose ground plan is the page. One axis runs its full length \u2014 the Grand Canal, drawn in one-point perspective across the first viewport, then continued downward as a single column of rooms, each section a band across the same central line. The voice is an eighteenth-century engraved plan: everything ornamental is drawn as crisp vector geometry \u2014 hairline flourishes, rake lines, plan knots, fountain jets \u2014 never photographic decoration.\n\nThe page deliberately refuses the pro-tour pattern of a hero photograph over a card grid. Its hero is inscriptional: a crest set in a marble cartouche, the league name in engraved capitals beneath, and a vector vista of the canal receding to the horizon between mirrored parterres. Photographs appear only framed as material objects \u2014 outing plates inside arched hedge theatres, the champion in a hedge niche. The joke is never announced; the straight face is the whole product, and the styling never winks. Density is ceremonial: generous band padding, one idea per band, prose capped at 66ch.\n\nMotion is rationed to a single authored moment \u2014 the fountains waking in sequence as the vista and the order come into view \u2014 plus quiet state transitions (button fills, theatre lifts, row highlights). Nothing depends on scripting: the markup renders complete without JS, scripting only holds the jets back so the wake can run, and prefers-reduced-motion disables it entirely.",
+    "keyCharacteristics": [
+      "One great axis: every section is a band on the same central line, separated by a single gilt hairline rule.",
+      "Four materials, strictly zoned: canal blue ground, clipped-hedge green enclosure, gilt bronze rule-work and controls, marble inscription at fixed points.",
+      "All ornament is vector: flourishes, legend icons, the plan knot, the scale bar, the vista, the fountain jets.",
+      "Engraved type: Cinzel inscriptional capitals for anything that names, ordains, or labels; EB Garamond \u2014 often italic \u2014 for running prose and annotation.",
+      "Mirrored symmetry: the vista, the plan legend, and the theatre row are strict mirror compositions.",
+      "Built to be sent: one self-contained file, decorative images lazy-loaded, and the share action front and center at the close."
+    ],
+    "rules": [
+      {
+        "name": "The Four Materials Rule",
+        "body": "Every surface, line, and word answers to one of four materials: canal blue is the ground, clipped hedge is enclosure, gilt bronze is rule-work and controls, marble is inscription. No material crosses its zone \u2014 the sole exception is the share button's done state, which fills hedge green as a confirmation.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Ground Rule",
+        "body": "Only marble is light. No white or near-white surface may appear anywhere else; the page's ground is canal blue end to end, from the terrace to the waterworks.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inscription Rule",
+        "body": "Cinzel capitals are reserved for what names, ordains, or labels \u2014 headings, names, ranks, plate labels, buttons. Running prose is always EB Garamond, and italic EB Garamond is the annotation voice. Never set a sentence in Cinzel.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Axis Rule",
+        "body": "Every section is a band on the same central axis (max 1180px); prose is centered and never exceeds 66ch. Divergence from the axis is only ever a mirrored composition.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Section separation is always the single hairline \u2014 --rule, 1px solid gilt at 38% alpha \u2014 as a border-top. No heavier dividers exist anywhere on the page.",
+        "section": "layout"
+      },
+      {
+        "name": "The Engraved Ring Rule",
+        "body": "Anything honored \u2014 the crest, the niche, each theatre \u2014 is set in concentric gilt rings, not floating shadows. Depth is drawn, not dropped.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Drawn, Not Rounded Rule",
+        "body": "Every ornamental form is vector-drawn geometry. When the build needs a soft corner it uses an arc, an arch, or a notch \u2014 never a generic border-radius.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Waking Rule",
+        "body": "The fountain wake is the only authored animation. Any new motion must be a state transition (hover, focus, active) on the existing ease curve \u2014 never a second choreography.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do keep the fountain wake as the only authored animation; new motion must be a state transition on the garden's ease curve.",
+      "Do draw every ornament as inline SVG with 1px gilt strokes (non-scaling), aria-hidden when decorative, and a real aria-label when it carries meaning (the vista, the scale).",
+      "Do keep every section a band on the one axis (max-width 1180px), prose centered and within 66ch; break symmetry only for a mirrored composition.",
+      "Do hold jets back only with the js class, and always render them full-height without JS and under prefers-reduced-motion.",
+      "Do keep marble on inscription and fixed points only \u2014 cartouche, plinth, cartellino \u2014 shaded with the established marble gradients.",
+      "Do keep the straight face: the pageantry is played completely seriously; nothing in the styling may wink at the joke."
+    ],
+    "donts": [
+      "Don't introduce a hero photograph or a card grid \u2014 the tour-site pattern this world exists to refuse.",
+      "Don't put hedge green on any control except the sanctioned done confirmation of the share button.",
+      "Don't set running prose in Cinzel, or labels in EB Garamond.",
+      "Don't add generic corner rounding; arcs, arches, and notched clips are the only corner language.",
+      "Don't lighten the ground: white or near-white belongs to marble alone; the page ground stays canal blue from terrace to waterworks.",
+      "Don't duplicate the palette again in new inline SVG; if a drawing must use literal hex, keep it in sync with :root."
+    ]
+  }
+}
