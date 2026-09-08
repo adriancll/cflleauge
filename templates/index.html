@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hong Kong Competitive Fishing League">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Hong Kong Competitive Fishing League</title>
+  <style>
+    :root {
+      --navy: #062e4d;
+      --navy-deep: #031d32;
+      --blue: #0a5a86;
+      --teal: #63c7c1;
+      --seafoam: #d9f5f2;
+      --paper: #f5fbfb;
+      --ink: #102d43;
+      --coral: #f44a42;
+      --gold: #f5bc41;
+      --line: #b9d8dc;
+      --shadow: 0 18px 45px rgba(3, 29, 50, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      overflow-x: clip;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      touch-action: pan-y;
+    }
+    body {
+      margin: 0;
+      max-width: 100%;
+      overflow-x: clip;
+      overflow-y: auto;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Trebuchet MS", "Avenir Next", sans-serif;
+      line-height: 1.5;
+    }
+    ::selection { background: var(--teal); color: var(--navy-deep); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(3, 29, 50, 0.97);
+      border-bottom: 1px solid rgba(217, 245, 242, 0.18);
+    }
+    .nav-wrap {
+      width: min(1160px, calc(100% - 40px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: white; font-weight: 800; letter-spacing: 0.02em; }
+    .brand img { width: 48px; height: 48px; object-fit: contain; }
+    .brand span { max-width: 150px; font-size: 0.82rem; line-height: 1.1; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; padding: 0; margin: 0; }
+    .nav-links a { color: #d9f5f2; font-size: 0.9rem; font-weight: 700; }
+    .nav-links a:hover { color: var(--teal); }
+    .menu-toggle { display: none; border: 0; background: transparent; color: white; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 25px; height: 2px; margin: 5px; background: currentColor; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 630px;
+      display: grid;
+      align-items: center;
+      background: var(--navy);
+      color: white;
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(99, 199, 193, 0.34);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { width: 760px; height: 760px; right: -300px; top: -330px; }
+    .hero::after { width: 520px; height: 520px; right: -190px; top: -210px; }
+    .hero-grid {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy { padding: 70px 0; }
+    .hero h1 { max-width: 710px; margin: 0; font-size: clamp(3rem, 6.7vw, 5.9rem); letter-spacing: -0.04em; line-height: 0.91; }
+    .hero h1 strong { color: var(--teal); font-weight: inherit; }
+    .hero p { max-width: 570px; margin: 28px 0 32px; color: #cce9e8; font-size: 1.12rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 22px;
+      background: var(--coral);
+      color: white;
+      border: 1px solid var(--coral);
+      border-radius: 5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 180ms ease, transform 180ms ease;
+    }
+    .button:hover { background: #d93d37; transform: translateY(-2px); }
+    .hero-mark { display: grid; place-items: center; }
+    .hero-mark img { width: min(100%, 370px); filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.28)); }
+    .waterline { position: absolute; right: 0; bottom: 0; left: 0; height: 78px; background: var(--teal); clip-path: polygon(0 47%, 12% 68%, 27% 32%, 42% 65%, 58% 25%, 75% 61%, 88% 38%, 100% 58%, 100% 100%, 0 100%); }
+
+    main section { padding: 104px 0; scroll-margin-top: 76px; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: auto; }
+    .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; margin-bottom: 38px; }
+    h2 { max-width: 680px; margin: 0; color: var(--navy); font-size: clamp(2.2rem, 4.6vw, 4.25rem); line-height: 0.98; letter-spacing: -0.04em; }
+    .section-heading p { max-width: 365px; margin: 0; color: #46667a; }
+
+    .standings { background: white; }
+    .leaderboard { border-top: 3px solid var(--navy); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th { padding: 14px 18px; color: #496979; background: var(--seafoam); font-size: 0.76rem; letter-spacing: 0.09em; text-align: left; text-transform: uppercase; }
+    td { padding: 20px 18px; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+    tbody tr { transition: background-color 160ms ease; }
+    tbody tr:hover { background: #f0fbfa; }
+    .rank { color: var(--blue); font-weight: 900; font-size: 1.15rem; }
+    .champion td { background: #fff9e7; }
+    .champion .rank { color: #b77a00; }
+    .angler { color: var(--navy); font-weight: 800; }
+    .points { color: var(--blue); font-weight: 800; font-variant-numeric: tabular-nums; }
+    .catch { max-width: 400px; color: #3d5e70; }
+
+    .events { background: var(--seafoam); }
+    .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .event-card { position: relative; min-height: 300px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; background: var(--navy); color: white; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .event-card:nth-child(2) { background: var(--blue); }
+    .event-card:nth-child(3) { background: #124865; }
+    .event-card::after { content: ""; position: absolute; width: 190px; height: 190px; right: -80px; bottom: -85px; border: 28px solid rgba(99, 199, 193, 0.25); border-radius: 50%; }
+    .event-date { color: var(--gold); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; }
+    .event-card h3 { position: relative; z-index: 1; margin: 14px 0 0; font-size: 1.7rem; line-height: 1.03; letter-spacing: -0.03em; }
+    .event-meta { position: relative; z-index: 1; margin: 0; color: #d7f4f1; font-size: 0.93rem; }
+
+    .gallery { background: white; }
+    .gallery-grid { display: grid; grid-template-columns: 1.25fr 0.75fr 0.75fr; grid-template-rows: repeat(2, 220px); gap: 16px; }
+    .gallery-item { position: relative; margin: 0; overflow: hidden; background: var(--navy); }
+    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-item:last-child { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 260ms ease; }
+    .gallery-item:hover img { transform: scale(1.045); }
+    .gallery-item figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 28px 18px 16px; color: white; font-weight: 800; background: linear-gradient(transparent, rgba(3, 29, 50, 0.9)); }
+
+    .rules { background: var(--paper); }
+    .rules-layout { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 70px; align-items: start; }
+    .rules-intro p { margin: 22px 0 0; color: #46667a; font-size: 1.08rem; }
+    .rule-list { padding: 0; margin: 0; list-style: none; border-top: 1px solid var(--line); }
+    .rule-list li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .rule-number { color: var(--coral); font-weight: 900; font-variant-numeric: tabular-nums; }
+    .rule-list strong { display: block; margin-bottom: 3px; color: var(--navy); }
+    .rule-list span { color: #46667a; }
+
+    footer { padding: 50px 0; background: var(--navy-deep); color: #c7e5e4; }
+    .footer-grid { width: min(1160px, calc(100% - 40px)); margin: auto; display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 30px; align-items: end; }
+    .footer-brand { color: white; font-weight: 800; font-size: 1.02rem; }
+    .footer-copy { margin: 8px 0 0; font-size: 0.86rem; }
+    .footer-contact { font-size: 0.92rem; }
+    .footer-contact a:hover, .social-links a:hover { color: var(--teal); }
+    .social-links { display: flex; gap: 17px; font-size: 0.9rem; font-weight: 800; }
+
+    @media (max-width: 760px) {
+      .nav-wrap { width: min(100% - 28px, 1160px); min-height: 66px; }
+      .brand img { width: 42px; height: 42px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 66px; right: 0; left: 0; padding: 14px; flex-direction: column; align-items: stretch; gap: 0; background: var(--navy-deep); border-top: 1px solid rgba(217, 245, 242, 0.18); }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 12px 14px; }
+      .hero { min-height: auto; }
+      .hero-grid, .rules-layout { grid-template-columns: 1fr; gap: 22px; }
+      .hero-copy { padding: 74px 0 38px; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.8rem); }
+      .hero-mark { margin-bottom: 72px; }
+      .hero-mark img { width: min(68vw, 290px); }
+      main section { padding: 70px 0; }
+      .section-heading { grid-template-columns: 1fr; gap: 15px; margin-bottom: 28px; }
+      th, td { padding: 13px 9px; font-size: 0.79rem; overflow-wrap: anywhere; }
+      th { font-size: 0.62rem; }
+      .rank { font-size: 0.95rem; }
+      .event-grid { grid-template-columns: 1fr; }
+      .event-card { min-height: 220px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 160px 160px; gap: 10px; }
+      .gallery-item:first-child { grid-column: span 2; grid-row: auto; }
+      .gallery-item:last-child { grid-column: span 2; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- THESIS: A harbour race board, not a generic club homepage. OWN-WORLD: navy water, sea-glass utility surfaces, and coral start signals. STORY: Visitors see the league, current leaders, and their next chance to compete. FIRST VIEWPORT: A bold league promise and logo meet at the harbour line, with the join action beside the story. FORM: Code-led chartboard. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance. -->
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Hong Kong Competitive Fishing League home">
+        <img src="/logoalpha.png" alt="Hong Kong Competitive Fishing League logo">
+        <span>Hong Kong Competitive Fishing League</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#leaderboard">Leaderboard</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#rules">Rules</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Hong Kong's <strong>Premier</strong> Fishing League</h1>
+          <p>Competitive sport fishing for anglers who read the tide, respect the water, and want their next catch to count.</p>
+          <a class="button" href="#events">Join the League</a>
+        </div>
+        <div class="hero-mark">
+          <img src="/logoalpha.png" alt="Hong Kong Competitive Fishing League emblem">
+        </div>
+      </div>
+      <div class="waterline" aria-hidden="true"></div>
+    </section>
+
+    <section class="standings" id="leaderboard">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Current standings</h2>
+          <p>Five anglers setting the pace in this season's Hong Kong waters.</p>
+        </div>
+        <div class="leaderboard" role="region" aria-label="League leaderboard" tabindex="0">
+          <table>
+            <thead><tr><th>Rank</th><th>Angler</th><th>Total points</th><th>Notable catch</th></tr></thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Upcoming events</h2>
+          <p>Mark your chart. Registration closes seven days before every tournament.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card"><div><div class="event-date">12 OCT 2026</div><h3>Victoria Harbour Snapper Classic</h3></div><p class="event-meta">Central Pier 9 · 06:00 start</p></article>
+          <article class="event-card"><div><div class="event-date">02 NOV 2026</div><h3>Sai Kung Squid Run</h3></div><p class="event-meta">Sai Kung Public Pier · Night session</p></article>
+          <article class="event-card"><div><div class="event-date">15 NOV 2026</div><h3>Lantau Bluewater Cup</h3></div><p class="event-meta">Tai O · 05:30 start</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <h2>From the water</h2>
+          <p>Recent moments from tournament days across Hong Kong.</p>
+        </div>
+        <div class="gallery-grid">
+          {% for image in gallery_images %}
+          <figure class="gallery-item"><img src="{{ url_for('static', filename='uploads/' ~ image.name) }}" alt="League gallery image: {{ image.stem }}" loading="lazy"><figcaption>{{ image.stem|replace('-', ' ')|replace('_', ' ') }}</figcaption></figure>
+          {% else %}
+          <p class="gallery-empty">Gallery loading soon. Check back after next tournament.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="rules" id="rules">
+      <div class="container rules-layout">
+        <div class="rules-intro"><h2>Fish hard. Fish fair.</h2><p>Every tournament rewards skill, stewardship, and a clean day on the water.</p></div>
+        <ol class="rule-list">
+          <li><b class="rule-number">01</b><div><strong>Respect the water</strong><span>Follow local marine regulations and the event safety briefing at all times.</span></div></li>
+          <li><b class="rule-number">02</b><div><strong>Verified catches only</strong><span>All scoring catches must be measured and logged with an event marshal.</span></div></li>
+          <li><b class="rule-number">03</b><div><strong>Leave no trace</strong><span>Protect Hong Kong's coastlines. Take every piece of tackle and litter home.</span></div></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Hong Kong Competitive Fishing League</div><p class="footer-copy">&copy; <span id="year"></span> HKCFL. All rights reserved.</p></div>
+      <div class="footer-contact"><a href="mailto:hello@shortliam.com">hello@shortliam.com</a><br>Victoria Harbour, Hong Kong</div>
+      <div class="social-links"><a href="#home">Instagram</a><a href="#home">Facebook</a><a href="#home">YouTube</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const anglers = [
+      { rank: 1, name: "Liam Cheung", points: 2840, catch: "Record: caught a 300-pound salmon at the International Norway Fishing Tournament." },
+      { rank: 2, name: "Maya Lau", points: 2615, catch: "42.8 kg giant trevally, Lantau Bluewater Cup" },
+      { rank: 3, name: "Ethan Wong", points: 2475, catch: "31.4 kg cobia, Po Toi Channel Open" },
+      { rank: 4, name: "Sophie Chan", points: 2290, catch: "18.6 kg barracuda, Sai Kung Squid Run" },
+      { rank: 5, name: "Noah Yip", points: 2140, catch: "26.1 kg snapper, Victoria Harbour Classic" }
+    ];
+
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    leaderboardBody.innerHTML = anglers.map((angler) => `
+      <tr class="${angler.rank === 1 ? "champion" : ""}">
+        <td class="rank">${angler.rank}</td>
+        <td class="angler">${angler.name}</td>
+        <td class="points">${angler.points.toLocaleString()}</td>
+        <td class="catch">${angler.catch}</td>
+      </tr>
+    `).join("");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>

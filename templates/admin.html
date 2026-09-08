@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Admin | HKCFL</title>
+  <style>
+    :root { --navy: #062e4d; --blue: #0a5a86; --teal: #63c7c1; --paper: #f5fbfb; --coral: #f44a42; --line: #b9d8dc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--paper); color: var(--navy); font-family: "Trebuchet MS", "Avenir Next", sans-serif; }
+    main { width: min(840px, calc(100% - 40px)); margin: 0 auto; padding: 72px 0; }
+    a { color: var(--blue); font-weight: 800; text-decoration: none; }
+    h1 { margin: 18px 0 8px; font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -0.04em; line-height: 0.95; }
+    p { color: #46667a; }
+    form { margin: 42px 0; padding: 28px; background: white; border-top: 4px solid var(--teal); box-shadow: 0 16px 35px rgba(3, 29, 50, 0.1); }
+    label { display: block; margin-bottom: 9px; font-weight: 800; }
+    input { width: 100%; padding: 14px; border: 1px solid var(--line); font: inherit; }
+    button { margin-top: 18px; padding: 13px 20px; border: 0; border-radius: 5px; background: var(--coral); color: white; font: inherit; font-weight: 800; cursor: pointer; }
+    .notice { padding: 13px; background: #fff2ee; color: #8b251f; font-weight: 700; }
+    .image-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .image-list img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="{{ url_for('home') }}">Back to site</a>
+    <h1>Gallery admin</h1>
+    <p>Upload JPG, PNG, GIF, or WebP files up to 8 MB.</p>
+    <form method="post" enctype="multipart/form-data">
+      <label for="image">Select image</label>
+      <input id="image" name="image" type="file" accept="image/jpeg,image/png,image/gif,image/webp" required>
+      <button type="submit">Upload image</button>
+    </form>
+    {% if error %}<p class="notice" role="alert">{{ error }}</p>{% endif %}
+    <div class="image-list">
+      {% for image in gallery_images %}
+      <img src="{{ url_for('static', filename='uploads/' ~ image.name) }}" alt="Uploaded image: {{ image.stem }}">
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

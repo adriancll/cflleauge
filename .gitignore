@@ -70,6 +70,10 @@ web_modules/
 .env.*
 !.env.example
 
+# Admin-uploaded gallery files
+static/uploads/*
+!static/uploads/.gitkeep
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache

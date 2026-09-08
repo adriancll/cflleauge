@@ -1,0 +1,9 @@
+[build]
+  # Run pip installs during build
+  commands = [
+    "pip3 install -r requirements.txt",
+    "pip install -r requirements.txt"
+  ]
+
+[start]
+  cmd = "python3 app.py"
