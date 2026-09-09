@@ -6,7 +6,7 @@ from flask import Flask, abort, redirect, render_template, request, url_for
 from PIL import Image, UnidentifiedImageError
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__, static_url_path="")
+app = Flask(__name__, static_url_path="", static_folder="static")
 app.config["MAX_CONTENT_LENGTH"] = 8 * 1024 * 1024
 UPLOAD_FOLDER = Path(app.static_folder) / "uploads"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
@@ -71,4 +71,4 @@ def admin():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
